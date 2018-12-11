@@ -34,6 +34,21 @@ make
 make install
 cd ..
 cd tmux-2.7
+
+
+export PKG_CONFIG_PATH=/home/user/local/lib/pkgconfig/:$PKG_CONFIG_PATH
+pkg-config --cflags --libs libevent -I/home/user/local/include -L/home/user/local/lib -levent
+pkg-config --cflags --libs libevent -I /home/user/local/include -L/home/user/local/lib -levent
+pkg-config --cflags --libs libevent --I/home/user/local/include -L/home/user/local/lib -levent
+./configure --prefix=$HOME/local CFLAGS="-I$HOME/local/include" LDFLAGS="-Wl,-rpath=$HOME/local/lib"
+make clean
+./configure --prefix=$HOME/local CFLAGS="-I$HOME/local/include" LDFLAGS="-Wl,-rpath=$HOME/local/lib"
+make
+ldd ./tmux
+make install
+tmux -V
+
+
   156  ll
   157  ./configure --prefix=$HOME/local
   158  ./configure --prefix=$HOME/local CFLAGS="-I$HOME/local/include" LDFLAGS="-L$HOME/local/lib"
