@@ -1,0 +1,23 @@
+# steps used to configure a tmux -CC anchor for a bastion or jump host
+# these steps work with local permissions and should not be installed as root. Tested on OL 6.11 and Centos 7. These versions are totally out of date.
+# make sure to have exceptional authentication protections (2fa, physical keys, etc) in place if you plan on leaving a setup like this in place.
+# first download the required tarballs:
+
+yum -y install wget
+cd ~
+mkdir temp
+cd temp/
+wget https://github.com/tmux/tmux/releases/download/2.7/tmux-2.7.tar.gz
+wget https://github.com/libevent/libevent/releases/download/release-2.1.8-stable/libevent-2.1.8-stable.tar.gz
+wget ftp://ftp.invisible-island.net/ncurses/ncurses.tar.gz
+
+# unpack the source from the tar / gzipped files
+# compile the libraries and applications together:
+
+cd ~
+mkdir local
+mkdir local/bin
+cd temp/
+tar xvzf tmux-2.7.tar.gz
+tar xvzf libevent-2.1.8-stable.tar.gz
+tar xvzf ncurses.tar.gz
