@@ -48,49 +48,49 @@ ldd ./tmux
 make install
 tmux -V
 
-
-  156  ll
-  157  ./configure --prefix=$HOME/local
-  158  ./configure --prefix=$HOME/local CFLAGS="-I$HOME/local/include" LDFLAGS="-L$HOME/local/lib"
-  159  make
-  160  make install
-  161  tmux --version
-  162  source ~/.bash_profile
-  163  tmux --version
-  164  tmux -V
-  165  ./configure CFLAGS="-I$HOME/local/include -I$HOME/local/include/ncurses" LDFLAGS="-L$HOME/local/lib -L$HOME/local/include/ncurses -L$HOME/local/include"
-  166  CPPFLAGS="-I$HOME/local/include -I$HOME/local/include/ncurses" LDFLAGS="-static -L$HOME/local/include -L$HOME/local/include/ncurses -L$HOME/local/lib" make
-  167  make
-  168  make install
-  169  ./configure --prefix=$HOME/local CFLAGS="-I$HOME/local/include" LDFLAGS="-L$HOME/local/lib"
-  170  make
-  171  make install
-  172  tmux -V
-  173  make clean
-  174  ./configure --prefix=$HOME/local CFLAGS="-I$HOME/local/include" LDFLAGS="-L$HOME/local/lib" --enable-static
-  175  ./configure --prefix=$HOME/local CFLAGS="-I$HOME/local/include" LDFLAGS="-L$HOME/local/lib" --enable-static -D_POSIX_SOURCE -I$HOME/local/include
-  176  ./configure --prefix=$HOME/local CFLAGS="-I$HOME/local/include" LDFLAGS="-L$HOME/local/lib" --enable-static -I$HOME/local/include
-  177  cd ~/local/bin/
-  178  ll
-  179  ls -al
-  180  ldd tmux
-  181  cd ..
-  182  cd ..
-  183  cd temp/tmux-2.7
-  184  export PKG_CONFIG_PATH=/home/user/local/lib/pkgconfig/:$PKG_CONFIG_PATH
-  185  pkg-config --cflags --libs libevent -I/home/user/local/include -L/home/user/local/lib -levent
-  186  pkg-config --cflags --libs libevent -I /home/user/local/include -L/home/user/local/lib -levent
-  187  pkg-config --cflags --libs libevent --I/home/user/local/include -L/home/user/local/lib -levent
-  188  ./configure --prefix=$HOME/local CFLAGS="-I$HOME/local/include" LDFLAGS="-Wl,-rpath=$HOME/local/lib"
-  189  make clean
-  190  ./configure --prefix=$HOME/local CFLAGS="-I$HOME/local/include" LDFLAGS="-Wl,-rpath=$HOME/local/lib"
-  191  make
-  192  ldd ./tmux
-  193  make install
-  194  tmux -V
-  195  tmux -CC
-  196  tmux -CC
-  197  tmux -CC &
-  198  tmux -CC &
-  199  exit
-  200  tmux -CC attach
+## need to do additonal centos7 testing below, all confirmed with ol 6.11
+ll
+./configure --prefix=$HOME/local
+./configure --prefix=$HOME/local CFLAGS="-I$HOME/local/include" LDFLAGS="-L$HOME/local/lib"
+make
+make install
+tmux --version
+source ~/.bash_profile
+tmux --version
+tmux -V
+./configure CFLAGS="-I$HOME/local/include -I$HOME/local/include/ncurses" LDFLAGS="-L$HOME/local/lib -L$HOME/local/include/ncurses -L$HOME/local/include"
+CPPFLAGS="-I$HOME/local/include -I$HOME/local/include/ncurses" LDFLAGS="-static -L$HOME/local/include -L$HOME/local/include/ncurses -L$HOME/local/lib" make
+make
+make install
+./configure --prefix=$HOME/local CFLAGS="-I$HOME/local/include" LDFLAGS="-L$HOME/local/lib"
+make
+make install
+tmux -V
+make clean
+./configure --prefix=$HOME/local CFLAGS="-I$HOME/local/include" LDFLAGS="-L$HOME/local/lib" --enable-static
+./configure --prefix=$HOME/local CFLAGS="-I$HOME/local/include" LDFLAGS="-L$HOME/local/lib" --enable-static -D_POSIX_SOURCE -I$HOME/local/include
+./configure --prefix=$HOME/local CFLAGS="-I$HOME/local/include" LDFLAGS="-L$HOME/local/lib" --enable-static -I$HOME/local/include
+cd ~/local/bin/
+ll
+ls -al
+ldd tmux
+cd ..
+cd ..
+cd temp/tmux-2.7
+export PKG_CONFIG_PATH=/home/user/local/lib/pkgconfig/:$PKG_CONFIG_PATH
+pkg-config --cflags --libs libevent -I/home/user/local/include -L/home/user/local/lib -levent
+pkg-config --cflags --libs libevent -I /home/user/local/include -L/home/user/local/lib -levent
+pkg-config --cflags --libs libevent --I/home/user/local/include -L/home/user/local/lib -levent
+./configure --prefix=$HOME/local CFLAGS="-I$HOME/local/include" LDFLAGS="-Wl,-rpath=$HOME/local/lib"
+make clean
+./configure --prefix=$HOME/local CFLAGS="-I$HOME/local/include" LDFLAGS="-Wl,-rpath=$HOME/local/lib"
+make
+ldd ./tmux
+make install
+tmux -V
+tmux -CC
+tmux -CC
+tmux -CC &
+tmux -CC &
+exit
+tmux -CC attach
